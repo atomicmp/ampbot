@@ -14,6 +14,9 @@ exports.up = (knex, Promise) => {
       .notNullable()
       .references('user_id')
       .inTable('users');
+    table
+      .string('discord_id')
+      .notNullable();
   });
 };
 
