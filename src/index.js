@@ -17,7 +17,11 @@ bot.on('message', msg => {
     const messageContent = parseMessageContent(msg)
     const command = commands[first(messageContent.split(' '))]
     if (typeof command === 'function') {
-      command(msg)
+      try {
+        command(msg)
+      } catch(err) {
+        console.error(err)
+      }
     }
   }
 });

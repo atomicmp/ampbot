@@ -9,11 +9,8 @@ exports.up = (knex, Promise) => {
       .references('user_id')
       .inTable('users');
     table
-      .integer('created_by')
-      .unsigned()
-      .notNullable()
-      .references('user_id')
-      .inTable('users');
+      .string('generator_discord_id')
+      .notNullable();
     table
       .string('discord_id')
       .notNullable();
