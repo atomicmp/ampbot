@@ -1,0 +1,26 @@
+parserOptions:
+  ecmaVersion: 2018
+env:
+  browser: true
+  node: true
+  jest: true
+extends:
+  - eslint:recommended
+  - plugin:import/errors
+  - plugin:import/warnings
+  - plugin:node/recommended
+  - plugin:prettier/recommended
+  - plugin:security/recommended
+plugins:
+  - import
+  - jest
+  - node
+  - prettier
+  - security
+rules:
+  node/no-unpublished-require: off
+  node/no-unsupported-features:
+    - error
+    - version: 8.10.0
+  node/no-missing-require: warn
+  security/detect-object-injection: off
