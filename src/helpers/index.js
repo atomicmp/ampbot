@@ -1,4 +1,5 @@
 module.exports = {
-  generateKey: require('./generate-key'),
+  generateKey: require('./keys/generate-key'),
+  insertKey: require('./keys/insert-key'),
   parseMessageContent: require('./parse-message-content'),
 };

@@ -1,10 +1,17 @@
+const {
+  POSTGRES_HOST,
+  POSTGRES_USER,
+  POSTGRES_PASSWORD,
+  POSTGRES_DATABASE,
+} = process.env;
+
 const knex = require('knex')({
   client: 'pg',
   connection: {
-    host: process.env.POSTGRES_HOST,
-    user: process.env.POSTGRES_USER,
-    password: process.env.POSTGRES_PASSWORD,
-    database: process.env.POSTGRES_DATABASE,
+    host: POSTGRES_HOST,
+    user: POSTGRES_USER,
+    password: POSTGRES_PASSWORD,
+    database: POSTGRES_DATABASE,
   },
 });
 
