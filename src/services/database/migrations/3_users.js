@@ -14,9 +14,7 @@ exports.up = async (knex, Promise) => {
       .unsigned()
       .references('faction_id')
       .inTable('factions');
-    table
-      .string('discord_id')
-      .notNullable();
+    table.string('discord_id').notNullable();
     table.timestamp('created_at').defaultTo(knex.fn.now());
     table.timestamp('last_seen').defaultTo(knex.fn.now());
   });

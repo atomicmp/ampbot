@@ -1,3 +1,3 @@
 module.exports = function pingCommand(msg) {
-  msg.reply('Pong!')
-}
+  msg.reply('Pong!');
+};

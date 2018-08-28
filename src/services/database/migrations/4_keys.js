@@ -7,12 +7,8 @@ exports.up = (knex, Promise) => {
       .unsigned()
       .references('user_id')
       .inTable('users');
-    table
-      .string('generator_discord_id')
-      .notNullable();
-    table
-      .string('discord_id')
-      .notNullable();
+    table.string('generator_discord_id').notNullable();
+    table.string('discord_id').notNullable();
   });
 };
 

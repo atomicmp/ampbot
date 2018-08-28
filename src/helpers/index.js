@@ -1,3 +1,4 @@
 module.exports = {
-  parseMessageContent: require('./parse-message-content')
-}
+  generateKey: require('./generate-key'),
+  parseMessageContent: require('./parse-message-content'),
+};
