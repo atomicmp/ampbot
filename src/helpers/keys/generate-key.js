@@ -11,7 +11,6 @@ const randomString = (len, bits) => {
   return outStr.toUpperCase();
 };
 
-
 module.exports = function generateKey() {
   return (
     'AMP-' +
