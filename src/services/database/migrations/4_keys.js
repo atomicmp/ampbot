@@ -5,7 +5,6 @@ exports.up = (knex, Promise) => {
     table
       .integer('owner')
       .unsigned()
-      .notNullable()
       .references('user_id')
       .inTable('users');
     table
