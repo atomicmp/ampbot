@@ -1,3 +1,5 @@
+const isEmpty = require('lodash.isempty');
+const db = require('../../services/database');
 const generateKey = require('./generate-key');
 
 module.exports = async function insertKey({
