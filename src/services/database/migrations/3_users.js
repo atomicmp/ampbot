@@ -6,6 +6,7 @@ exports.up = async (knex, Promise) => {
     table
       .integer('role')
       .unsigned()
+      .defaultTo(3)
       .notNullable()
       .references('role_id')
       .inTable('roles');
