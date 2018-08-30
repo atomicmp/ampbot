@@ -1,8 +1,10 @@
 // You owe me one PlayerDeer
+const path = require('path')
+
 module.exports = msg => {
   msg.channel.send('',{
     files: [
-      "../../public/images/dab.gif"
+      path.resolve(__dirname, "../../public/images/dab.gif")
     ]
   })
 }
