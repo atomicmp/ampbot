@@ -20,7 +20,7 @@ module.exports = async function acceptApplicationCommand(msg) {
     return;
   }
 
-  const targetRole = first(msg.mentions.roles.array())
+  const targetRole = first(msg.mentions.roles.array());
   const targets = targetRole.members.array();
 
   if (isEmpty(targets)) {
@@ -41,5 +41,5 @@ module.exports = async function acceptApplicationCommand(msg) {
       }
     })
   );
-  msg.channel.send(`${targetRole.name} complete!`)
+  msg.channel.send(`${targetRole.name} complete!`);
 };
