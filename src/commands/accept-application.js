@@ -36,8 +36,8 @@ module.exports = async function acceptApplicationCommand(msg) {
         const key = await insertKey({ author, target });
         await target.addRole(TestersRole);
         await target.send(texts.KEY_MESSAGE(key));
-        await msg.react(acknowledgeEmoji);
       }
     })
   );
+  await msg.react(acknowledgeEmoji);
 };
