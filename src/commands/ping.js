@@ -1,3 +1,3 @@
-module.exports = function pingCommand(msg) {
-  msg.reply('Pong!');
+module.exports = async function pingCommand(msg) {
+  await msg.reply('Pong!');
 };

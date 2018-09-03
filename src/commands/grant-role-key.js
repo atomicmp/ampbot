@@ -41,5 +41,5 @@ module.exports = async function acceptApplicationCommand(msg) {
       }
     })
   );
-  msg.channel.send(`${targetRole.name} complete!`);
+  await msg.channel.send(`${targetRole.name} complete!`);
 };
