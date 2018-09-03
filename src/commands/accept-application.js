@@ -20,6 +20,7 @@ module.exports = async function acceptApplicationCommand(msg) {
     await msg.channel.send(texts.NOT_ADMIN());
     return;
   }
+  const TestersRole = msg.guild.roles.find(role => role.name === 'Testers')
   const targets = msg.mentions.members.array();
 
   if (isEmpty(targets)) {
@@ -34,7 +35,7 @@ module.exports = async function acceptApplicationCommand(msg) {
         await msg.channel.send(texts.HAS_KEY(target));
       } else {
         const key = await insertKey({ author, target });
-
+        target.addRole(TestersRole);
         await target.send(texts.KEY_MESSAGE(key));
       }
     })
