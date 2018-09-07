@@ -3,5 +3,6 @@ module.exports = {
   acceptApplication: require('./accept-application'),
   grantRoleKey: require('./grant-role-key'),
   dab: require('./dab'),
-  cleanupTesters: require('./cleanup-testers')
+  cleanupTesters: require('./cleanup-testers'),
+  bruh: require('./bruh')
 };
