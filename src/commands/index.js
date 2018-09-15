@@ -5,5 +5,6 @@ module.exports = {
   dab: require('./dab'),
   cleanupTesters: require('./cleanup-testers'),
   bruh: require('./bruh'),
-  factionInit: require('./faction-init')
+  factionInit: require('./faction-init'),
+  factionSync: require('./faction-sync')
 };
