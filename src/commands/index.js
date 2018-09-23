@@ -6,5 +6,6 @@ module.exports = {
   cleanupTesters: require('./cleanup-testers'),
   bruh: require('./bruh'),
   factionInit: require('./faction-init'),
-  factionSync: require('./faction-sync')
+  factionSync: require('./faction-sync'),
+  recoverPassword: require('./recover-password'),
 };

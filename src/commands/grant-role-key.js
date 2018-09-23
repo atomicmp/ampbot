@@ -1,9 +1,10 @@
 const isEmpty = require('lodash.isempty');
 const first = require('lodash.first');
-const { WEBSITE_URL } = require('../utils/constants');
 const db = require('../services/database');
 
 const { insertKey } = require('../helpers');
+
+const { WEBSITE_URL } = process.env;
 
 const texts = {
   NO_TARGETS: () => 'This command requires targets. Please mention a role.',

@@ -1,8 +1,9 @@
 const isEmpty = require('lodash.isempty');
-const { WEBSITE_URL } = require('../utils/constants');
 const db = require('../services/database');
 
 const { insertKey } = require('../helpers');
+
+const { WEBSITE_URL } = process.env;
 
 const texts = {
   NO_TARGETS: () => 'This command requires targets. Please mention a user.',
@@ -18,7 +19,9 @@ module.exports = async function acceptApplicationCommand(msg) {
     await msg.channel.send(texts.NOT_ADMIN());
     return;
   }
-  const acknowledgeEmoji = msg.guild.emojis.find(emoji => emoji.name === 'puppetdab');
+  const acknowledgeEmoji = msg.guild.emojis.find(
+    emoji => emoji.name === 'puppetdab'
+  );
   const TestersRole = msg.guild.roles.find(role => role.name === 'Testers');
   const targets = msg.mentions.members.array();
 
