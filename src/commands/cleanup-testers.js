@@ -1,9 +1,9 @@
 const db = require('../services/database');
-const discord = require('../services/discord');
+const { isAdmin } = require('../helpers')
 
 module.exports = async function cleanupTestersCommand(msg) {
   const { member } = msg;
-  if (!member.permissions.has('ADMINISTRATOR')) {
+  if (!isAdmin(member)) {
     await msg.channel.send(texts.NOT_ADMIN());
     return;
   }

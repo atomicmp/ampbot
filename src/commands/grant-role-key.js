@@ -2,7 +2,7 @@ const isEmpty = require('lodash.isempty');
 const first = require('lodash.first');
 const db = require('../services/database');
 
-const { insertKey } = require('../helpers');
+const { insertKey, isAdmin } = require('../helpers');
 
 const { WEBSITE_URL } = process.env;
 
@@ -16,7 +16,7 @@ const texts = {
 
 module.exports = async function acceptApplicationCommand(msg) {
   const { author, member } = msg;
-  if (!member.permissions.has('ADMINISTRATOR')) {
+  if (!isAdmin(member)) {
     await msg.channel.send(texts.NOT_ADMIN());
     return;
   }

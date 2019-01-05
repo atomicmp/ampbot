@@ -1,5 +1,6 @@
-const isEmpty = require('lodash.isempty');
 const db = require('../services/database');
+
+const { isAdmin } = require('../helpers')
 
 const texts = {
   NOT_ADMIN: () => 'This command can only be used by ADMINISTRATOR ranks.',
@@ -17,7 +18,7 @@ async function updateFactionInformation(role) {
 module.exports = async function factionInitCommand(msg) {
   const { member } = msg;
 
-  if (!member.permissions.has('ADMINISTRATOR')) {
+  if (!isAdmin(member)) {
     await msg.channel.send(texts.NOT_ADMIN());
     return;
   }
