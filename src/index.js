@@ -5,6 +5,7 @@ const { COMMAND_PREFIX } = process.env;
 const { parseMessageContent } = require('./helpers');
 
 const commands = require('./commands');
+const substrings = require('./substrings');
 
 bot.on('ready', () => {
   console.log('ready');
@@ -16,6 +17,13 @@ bot.on('message', msg => {
     const command = commands[first(messageContent.split(' '))];
     if (typeof command === 'function') {
       command(msg)
+        .catch(console.error)
+        .then();
+    }
+  }
+  for (const substr in substrings) {
+    if (msg.content.toLowerCase().indexOf(substr) !== -1) {
+      substrings[substr](msg)
         .catch(console.error)
         .then();
     }
