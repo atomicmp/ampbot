@@ -2,25 +2,26 @@
   "name": "ampbot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src",
   "dependencies": {
     "discord.js": "^11.4.2",
     "dotenv": "^6.0.0",
-    "jest": "^23.5.0",
     "knex": "^0.15.2",
     "lodash.first": "^3.0.0",
     "lodash.isempty": "^4.4.0",
-    "nodemon": "^1.18.3",
-    "pg": "^7.4.3"
+    "nodemon": "^1.18.4",
+    "pg": "^7.4.3",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "eslint": "^5.4.0",
-    "prettier-eslint": "^8.8.2"
+    "prettier-eslint": "^8.8.2",
+    "jest": "^23.5.0"
   },
   "scripts": {
-    "start": "nodemon -r dotenv/config src",
+    "start": "nodemon -r dotenv/config",
     "format": "prettier --write '{src,public}/**/*.js' '{src,public}/*/!(node_modules)/**/*.js'",
-    "lint": "eslint {src,public} --ignore-path .gitignore ",
+    "lint": "eslint {src} --ignore-path .gitignore ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "pre-commit-lint": "lint-staged"
   },

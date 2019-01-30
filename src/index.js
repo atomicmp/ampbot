@@ -15,11 +15,9 @@ bot.on('message', msg => {
     const messageContent = parseMessageContent(msg);
     const command = commands[first(messageContent.split(' '))];
     if (typeof command === 'function') {
-      try {
-        command(msg);
-      } catch (err) {
-        console.error(err);
-      }
+      command(msg)
+        .catch(console.error)
+        .then();
     }
   }
 });

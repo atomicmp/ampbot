@@ -1,10 +1,9 @@
 const isEmpty = require('lodash.isempty');
-const first = require('lodash.first');
-const { WEBSITE_URL } = require('../utils/constants');
-const bot = require('../services/discord');
 const db = require('../services/database');
 
-const { insertKey } = require('../helpers');
+const { insertKey, isAdmin } = require('../helpers');
+
+const { WEBSITE_URL } = process.env;
 
 const texts = {
   NO_TARGETS: () => 'This command requires targets. Please mention a user.',
@@ -16,10 +15,14 @@ const texts = {
 
 module.exports = async function acceptApplicationCommand(msg) {
   const { author, member } = msg;
-  if (!member.permissions.has('ADMINISTRATOR')) {
+  if (!isAdmin(member)) {
     await msg.channel.send(texts.NOT_ADMIN());
     return;
   }
+  const acknowledgeEmoji = msg.guild.emojis.find(
+    emoji => emoji.name === 'puppetdab'
+  );
+  const TestersRole = msg.guild.roles.find(role => role.name === 'Testers');
   const targets = msg.mentions.members.array();
 
   if (isEmpty(targets)) {
@@ -34,9 +37,10 @@ module.exports = async function acceptApplicationCommand(msg) {
         await msg.channel.send(texts.HAS_KEY(target));
       } else {
         const key = await insertKey({ author, target });
-
+        await target.addRole(TestersRole);
         await target.send(texts.KEY_MESSAGE(key));
       }
     })
   );
+  await msg.react(acknowledgeEmoji);
 };
