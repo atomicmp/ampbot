@@ -2,7 +2,7 @@ const first = require('lodash.first');
 const bot = require('./services/discord');
 const { COMMAND_PREFIX } = process.env;
 
-const { parseMessageContent } = require('./helpers');
+const { parseMessageContent, banUserAccount } = require('./helpers');
 
 const commands = require('./commands');
 const substrings = require('./substrings');
@@ -28,4 +28,15 @@ bot.on('message', msg => {
         .then();
     }
   }
+});
+
+bot.on('guildBanAdd', (_, user) => {
+  banUserAccount(user.id)
+    .catch(console.error)
+    .then();
+});
+bot.on('guildMemberRemove', member => {
+  banUserAccount(member.user.id)
+    .catch(console.error)
+    .then();
 });

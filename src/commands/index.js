@@ -8,5 +8,6 @@ module.exports = {
   factionInit: require('./faction-init'),
   factionSync: require('./faction-sync'),
   recoverPassword: require('./recover-password'),
-  syncPrivs: require('./sync-privs')
+  syncPrivs: require('./sync-privs'),
+  unban: require('./unban')
 };
