@@ -1,5 +1,5 @@
 const isEmpty = require('lodash.isempty');
-const db = require('../services/database');
+const { db } = require('../services');
 
 const { isAdmin } = require('../helpers');
 
@@ -36,7 +36,7 @@ module.exports = async function factionInitCommand(msg) {
       role_id: targetRole.id,
     })
     .returning('faction_id');
-  console.log(factionId);
+  logger.info(factionId);
   const factionMembers = targetRole.members.array();
 
   await Promise.all(

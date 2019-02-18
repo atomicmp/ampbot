@@ -1,5 +1,5 @@
 const isEmpty = require('lodash.isempty');
-const db = require('../services/database');
+const { db } = require('../services');
 
 const { isAdmin } = require('../helpers');
 
