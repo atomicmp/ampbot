@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/ampbot
+    docker:
+      - image: circleci/node:10.10.0
+    steps:
+      - checkout
+      - run:
+          name: update-npm 
+          command: 'sudo npm install -g npm@latest'
+      - run:
+          name: install-npm-deps
+          command: npm install
+      - run:
+          name: test
+          command: npm test
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build

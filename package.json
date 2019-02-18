@@ -22,7 +22,7 @@
     "start": "nodemon -r dotenv/config",
     "format": "prettier --write '{src,public}/**/*.js' '{src,public}/*/!(node_modules)/**/*.js'",
     "lint": "eslint {src} --ignore-path .gitignore ",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ENV=test jest",
     "pre-commit-lint": "lint-staged"
   },
   "author": "",
