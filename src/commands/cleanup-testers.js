@@ -19,7 +19,7 @@ module.exports = async function cleanupTestersCommand(msg) {
     targets.map(async target => {
       const targetId = target.user.id;
       if (!forumUsers.has(targetId)) {
-        console.log(target.user.username, 'does not have a forum account');
+        logger.info(target.user.username, 'does not have a forum account');
         await db('keys')
           .where('discord_id', targetId)
           .del();

@@ -36,7 +36,7 @@ module.exports = async function factionInitCommand(msg) {
       role_id: targetRole.id,
     })
     .returning('faction_id');
-  console.log(factionId);
+  logger.info(factionId);
   const factionMembers = targetRole.members.array();
 
   await Promise.all(
