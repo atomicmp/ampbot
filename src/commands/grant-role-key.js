@@ -1,7 +1,6 @@
 const isEmpty = require('lodash.isempty');
 const first = require('lodash.first');
-const db = require('../services/database');
-
+const { db } = require('../services');
 const { insertKey, isAdmin } = require('../helpers');
 
 const { WEBSITE_URL } = process.env;

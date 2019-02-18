@@ -1,5 +1,5 @@
 const uuid = require('uuid/v1');
-const db = require('../services/database');
+const { db } = require('../services');
 
 const { WEBSITE_URL } = process.env;
 
