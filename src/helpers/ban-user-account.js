@@ -1,4 +1,4 @@
-const db = require('../services/database')
+const { db } = require('../services')
 
 module.exports = async function removeMemberById(userId) {
   await db('users')
