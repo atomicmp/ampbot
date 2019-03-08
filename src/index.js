@@ -40,3 +40,4 @@ bot.on('guildMemberRemove', member => {
     .catch(logger.error)
     .then();
 });
+bot.on('error', logger.error);
