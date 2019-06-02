@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "target": "es5",
+    "lib": [
+      "es2015",
+      "es6"
+    ],
+    "noImplicitAny": true
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}

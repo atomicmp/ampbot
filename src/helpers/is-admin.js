@@ -1,1 +1,0 @@
-module.exports = member => member.permissions.has('ADMINISTRATOR')
