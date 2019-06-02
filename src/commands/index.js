@@ -1,13 +1,26 @@
+import ping from './ping';
+import acceptApplication from './accept-application';
+import acceptApplication from './accept-application';
+import dab from './dab';
+import cleanupTesters from './cleanup-testers';
+import bruh from './bruh';
+import factionInit from './faction-init';
+import factionSync from './faction-sync';
+import recoverPassword from './recover-password';
+import syncPrivs from './sync-privs';
+import unban from './unban';
+
 module.exports = {
-  ping: require('./ping'),
-  acceptApplication: require('./accept-application'),
-  grantRoleKey: require('./grant-role-key'),
-  dab: require('./dab'),
-  cleanupTesters: require('./cleanup-testers'),
-  bruh: require('./bruh'),
-  factionInit: require('./faction-init'),
-  factionSync: require('./faction-sync'),
-  recoverPassword: require('./recover-password'),
-  syncPrivs: require('./sync-privs'),
-  unban: require('./unban')
+  ping,
+  acceptApplication,
+  acceptApp: acceptApplication,
+  dab,
+  cleanupTesters,
+  bruh,
+  factionInit,
+  factionSync,
+  recoverPassword,
+  resetPassword: recoverPassword,
+  syncPrivs,
+  unban,
 };
