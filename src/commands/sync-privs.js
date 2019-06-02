@@ -5,11 +5,24 @@ const { ROLES } = require('../utils/constants');
 const ADMIN_ROLE_NAMES = [
   'Owner',
   'Project Manager',
-  'Admin'
+  'Admin',
+  /**
+   *          { }
+   *          {^^,
+   *          (   `-;
+   *     _     `;;~~
+   *    /(______);
+   *   (         (
+   *    |:------( )
+   *  _//         \\
+   * / /          vv
+   */
+  'I\'m a special snowflake'
 ]
 
 const MODERATOR_ROLE_NAMES = [
-  'Moderator'
+  'Moderator',
+  '---Developer---'
 ]
 
 const texts = {
