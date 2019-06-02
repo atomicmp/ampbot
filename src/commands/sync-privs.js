@@ -6,6 +6,17 @@ const ADMIN_ROLE_NAMES = [
   'Owner',
   'Project Manager',
   'Admin',
+  /**
+   *          { }
+   *          {^^,
+   *          (   `-;
+   *     _     `;;~~
+   *    /(______);
+   *   (         (
+   *    |:------( )
+   *  _//         \\
+   * / /          vv
+   */
   'I\'m a special snowflake'
 ]
 
