@@ -1,14 +1,13 @@
-import ping from './ping';
-import acceptApplication from './accept-application';
-import acceptApplication from './accept-application';
-import dab from './dab';
-import cleanupTesters from './cleanup-testers';
-import bruh from './bruh';
-import factionInit from './faction-init';
-import factionSync from './faction-sync';
-import recoverPassword from './recover-password';
-import syncPrivs from './sync-privs';
-import unban from './unban';
+const ping = require('./ping');
+const acceptApplication = require('./accept-application');
+const dab = require('./dab');
+const cleanupTesters = require('./cleanup-testers');
+const bruh = require('./bruh');
+const factionInit = require('./faction-init');
+const factionSync = require('./faction-sync');
+const recoverPassword = require('./recover-password');
+const syncPrivs = require('./sync-privs');
+const unban = require('./unban');
 
 module.exports = {
   ping,
