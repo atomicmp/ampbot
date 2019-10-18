@@ -8,13 +8,14 @@ const {
   POSTGRES_USE_SSL,
 } = process.env;
 
+const useSSL = POSTGRES_USE_SSL === 'true';
+
 console.log({
   POSTGRES_HOST,
   POSTGRES_USER,
   POSTGRES_PASSWORD,
   POSTGRES_DB,
-  POSTGRES_USE_SSL,
-})
+}, useSSL)
 
 
 const knex = Knex({
@@ -23,7 +24,7 @@ const knex = Knex({
     database: POSTGRES_DB,
     host: POSTGRES_HOST,
     password: POSTGRES_PASSWORD,
-    ssl: POSTGRES_USE_SSL,
+    ssl: useSSL,
     user: POSTGRES_USER,
   },
 });

@@ -12,5 +12,6 @@ docker create \
     -e POSTGRES_USER=$POSTGRES_USER \
     -e POSTGRES_PASSWORD=$POSTGRES_PASSWORD \
     -e POSTGRES_DB=$POSTGRES_DB \
+    -e POSTGRES_USE_SSL=$POSTGRES_USE_SSL \
     --name 'ampbot' \
     amp/bot
