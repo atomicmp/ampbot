@@ -7,13 +7,17 @@ const { WEBSITE_URL } = process.env;
 
 export default async function recoverPasswordCommand(msg: Message) {
   const userId = msg.author.id;
+  console.log(userId)
 
   const [user] = await db("users").where({ discord_id: userId });
+
+  console.log(user)
 
   if (!user) {
     msg.channel.send("Forum account not found!");
     return;
   }
+
 
   const requestId = uuid();
 

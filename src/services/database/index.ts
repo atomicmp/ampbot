@@ -4,14 +4,23 @@ const {
   POSTGRES_HOST,
   POSTGRES_USER,
   POSTGRES_PASSWORD,
-  POSTGRES_DATABASE,
+  POSTGRES_DB,
   POSTGRES_USE_SSL,
 } = process.env;
+
+console.log({
+  POSTGRES_HOST,
+  POSTGRES_USER,
+  POSTGRES_PASSWORD,
+  POSTGRES_DB,
+  POSTGRES_USE_SSL,
+})
+
 
 const knex = Knex({
   client: "pg",
   connection: {
-    database: POSTGRES_DATABASE,
+    database: POSTGRES_DB,
     host: POSTGRES_HOST,
     password: POSTGRES_PASSWORD,
     ssl: POSTGRES_USE_SSL,

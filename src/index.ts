@@ -12,37 +12,39 @@ bot.on("ready", () => {
   logger.info("ready");
 });
 
-bot.on("message", (msg: Message) => {
+bot.on("message", async (msg: Message) => {
   if (msg.content.startsWith("" + COMMAND_PREFIX)) {
     const messageContent = parseMessageContent(msg);
     const command: (msg: Message) => Promise<void> = commands[
       first(messageContent.split(" ")) as string
     ];
     if (typeof command === "function" && command !== undefined) {
-      command(msg)
-        .catch(logger.error)
-        .then();
+      await command(msg);
     }
   }
   for (const substr in substrings) {
     if (msg.content.toLowerCase().indexOf(substr) !== -1) {
-      substrings[substr as string](msg)
-        .catch(logger.error)
-        .then();
+      await substrings[substr as string](msg);
     }
   }
 });
 
-bot.on("guildBanAdd", (_, user: User) => {
-  banUserAccount(user.id)
-    .catch(logger.error)
-    .then();
+bot.on("guildBanAdd", async (_, user: User) => {
+  await banUserAccount(user.id);
 });
-bot.on("guildMemberRemove", (member: GuildMember) => {
-  banUserAccount(member.user.id)
-    .catch(logger.error)
-    .then();
+
+bot.on("guildMemberRemove", async (member: GuildMember) => {
+  await banUserAccount(member.user.id);
 });
-bot.on("error", (err) => {
+
+bot.on("error", async (err) => {
   logger.error(err);
 });
+
+bot.on("reconnecting", async () => {
+  logger.debug({message: "Reconnecting to Discord API", timestamp: new Date()})
+})
+
+process.on("exit", () => {
+  bot.destroy();
+})
