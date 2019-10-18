@@ -1,5 +1,5 @@
 import first from "lodash.first";
-import { bot, logger } from "./services";
+import { bot, logger, db } from "./services";
 const { COMMAND_PREFIX } = process.env;
 
 import { banUserAccount, parseMessageContent } from "./helpers";
@@ -8,8 +8,14 @@ import { GuildMember, Message, User } from "discord.js";
 import commands from "./commands";
 import substrings from "./substrings";
 
-bot.on("ready", () => {
+bot.on("ready", async () => {
   logger.info("ready");
+
+  db.raw('select 1+1 as result').catch(_ => {
+    logger.error("Cannot reach DB! Exiting...");
+    process.exit();
+  });
+
 });
 
 bot.on("message", async (msg: Message) => {
@@ -47,4 +53,5 @@ bot.on("reconnecting", async () => {
 
 process.on("exit", () => {
   bot.destroy();
+  db.destroy();
 })

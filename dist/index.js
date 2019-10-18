@@ -45,9 +45,16 @@ var COMMAND_PREFIX = process.env.COMMAND_PREFIX;
 var helpers_1 = require("./helpers");
 var commands_1 = __importDefault(require("./commands"));
 var substrings_1 = __importDefault(require("./substrings"));
-services_1.bot.on("ready", function () {
-    services_1.logger.info("ready");
-});
+services_1.bot.on("ready", function () { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        services_1.logger.info("ready");
+        services_1.db.raw('select 1+1 as result').catch(function (_) {
+            services_1.logger.error("Cannot reach DB! Exiting...");
+            process.exit();
+        });
+        return [2 /*return*/];
+    });
+}); });
 services_1.bot.on("message", function (msg) { return __awaiter(void 0, void 0, void 0, function () {
     var messageContent, command, _a, _b, _i, substr;
     return __generator(this, function (_c) {
@@ -116,4 +123,5 @@ services_1.bot.on("reconnecting", function () { return __awaiter(void 0, void 0,
 }); });
 process.on("exit", function () {
     services_1.bot.destroy();
+    services_1.db.destroy();
 });

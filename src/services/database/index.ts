@@ -10,14 +10,6 @@ const {
 
 const useSSL = POSTGRES_USE_SSL === 'true';
 
-console.log({
-  POSTGRES_HOST,
-  POSTGRES_USER,
-  POSTGRES_PASSWORD,
-  POSTGRES_DB,
-}, useSSL)
-
-
 const knex = Knex({
   client: "pg",
   connection: {
