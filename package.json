@@ -6,7 +6,7 @@
   "dependencies": {
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
-    "knex": "^0.17.6",
+    "knex": "^0.19.5",
     "lodash.first": "^3.0.0",
     "lodash.isempty": "^4.4.0",
     "nodemon": "^1.19.4",
